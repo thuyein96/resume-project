@@ -11,14 +11,14 @@ export function Select<T extends string = string>({ value, onValueChange, childr
 
   React.Children.forEach(children, (child) => {
     if (!React.isValidElement(child)) return;
-    const type: any = (child as React.ReactElement).type;
-    if (type?.displayName === 'UISelectContent') {
+    const type = ((child as React.ReactElement).type as { displayName?: string } | undefined);
+    if (type && type.displayName === 'UISelectContent') {
       const contentChildren = (child as React.ReactElement<{ children?: React.ReactNode }>).props
         .children;
       React.Children.forEach(contentChildren, (grand) => {
         if (!React.isValidElement(grand)) return;
-        const gtype: any = (grand as React.ReactElement).type;
-        if (gtype?.displayName === 'UISelectItem') {
+        const gtype = ((grand as React.ReactElement).type as { displayName?: string } | undefined);
+        if (gtype && gtype.displayName === 'UISelectItem') {
           const grandEl = grand as React.ReactElement<{ value: string; children: React.ReactNode }>;
           items.push({ value: grandEl.props.value, label: grandEl.props.children });
         }
@@ -46,7 +46,7 @@ export function SelectTrigger({ children }: { className?: string; children?: Rea
 }
 SelectTrigger.displayName = 'UISelectTrigger';
 
-export function SelectValue(_props: { placeholder?: string }) {
+export function SelectValue({}: { placeholder?: string }) {
   return null;
 }
 SelectValue.displayName = 'UISelectValue';
