@@ -23,10 +23,11 @@ export function ResumeEditor({ mode }: ResumeEditorProps) {
   const router = useRouter();
 
   const handleSave = async () => {
+    const API_BASE = process.env.NEXT_PUBLIC_API_URL;
     setIsSaving(true);
     try {
       const isEdit = mode === 'edit';
-      const url = isEdit ? `/api/resumes/${resumeData._id}` : '/api/resumes';
+      const url = isEdit ? `${API_BASE}/api/resumes/${resumeData._id}` : `${API_BASE}/api/resumes`;
       const method = isEdit ? 'PUT' : 'POST';
       const response = await fetch(url, {
         method,
@@ -41,18 +42,8 @@ export function ResumeEditor({ mode }: ResumeEditorProps) {
       }
       router.push('/resumes');
 
-    //   if (method === 'POST') {
-    //     const created = await response.json().catch(() => null);
-    //     const newId = created?._id || created?.id;
-    //     if (newId) {
-    //       router.push(`/resumes/${newId}`);
-    //     }
-    //   }
-
-      // Revalidation and toast notification can be wired here if available
     } catch (error) {
       console.error(error);
-      // handle UI error notification here if a toast system is added
     } finally {
       setIsSaving(false);
     }

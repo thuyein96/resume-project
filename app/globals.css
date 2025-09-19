@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .no-print {
+    display: none !important;
+  }
+  .printable-area {
+    width: 100% !important;
+    height: 100% !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+    transform: scale(1) !important;
+  }
+  .printable-area .text-primary {
+    color: #34495E !important;
+  }
+  .printable-area .bg-secondary {
+    background-color: #F2F3F4 !important;
+  }
+  @page {
+    size: A4;
+    margin: 20mm;
+  }
+}
