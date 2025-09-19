@@ -13,7 +13,7 @@ export async function GET(_req: NextRequest, ctx: Context) {
 export async function PUT(req: NextRequest, ctx: Context) {
   const { id } = await ctx.params;
   const body = await req.json();
-  const { _id, ...data } = body || {};
+  const data = body || {};
   const updated = await updateResumeById(id, data);
   return NextResponse.json(updated);
 }
