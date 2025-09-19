@@ -27,7 +27,7 @@ export function ResumeEditor({ mode }: ResumeEditorProps) {
     setIsSaving(true);
     try {
       const isEdit = mode === 'edit';
-      const url = isEdit ? `${API_BASE}/api/resumes/${resumeData._id}` : `${API_BASE}/api/resumes`;
+      const url = isEdit ? `${API_BASE}/resumes/${resumeData._id}` : `${API_BASE}/resumes`;
       const method = isEdit ? 'PUT' : 'POST';
       const response = await fetch(url, {
         method,

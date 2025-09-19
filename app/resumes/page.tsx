@@ -14,7 +14,7 @@ export default function Home() {
 
     const load = async () => {
         setLoading(true);
-        const res = await fetch(`${API_BASE}/api/resumes`, { cache: 'no-store' });
+        const res = await fetch(`${API_BASE}/resumes`, { cache: 'no-store' });
         const data = await res.json();
         setItems(data || []);
         setLoading(false);
@@ -32,7 +32,7 @@ export default function Home() {
         router.push(`/resumes/${id}`);
     };
     const handleDelete = async (id: string) => {
-        await fetch(`${API_BASE}/api/resumes/${id}`, { method: 'DELETE' });
+        await fetch(`${API_BASE}/resumes/${id}`, { method: 'DELETE' });
         await load();
     };
 
