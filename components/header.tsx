@@ -1,5 +1,4 @@
 import { FileText } from 'lucide-react';
-import { DownloadButton } from './download-button';
 
 export function Header() {
   return (
@@ -9,9 +8,7 @@ export function Header() {
           <FileText className="h-6 w-6 text-primary" />
           <h1 className="text-xl font-bold text-primary">ResumeCraft</h1>
         </div>
-        <div className="flex items-center gap-4">
-          <DownloadButton />
-        </div>
+        
       </div>
     </header>
   );

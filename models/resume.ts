@@ -55,11 +55,7 @@ const ResumeModel = mongoose.models.Resume || mongoose.model<ResumeData>('Resume
 
 export async function getResume() {
   await connectDB();
-  let resume = await ResumeModel.findOne({});
-  if (!resume) {
-    // If no resume exists, create one with initial data
-    resume = await ResumeModel.create(initialData);
-  }
+  let resume = await ResumeModel.create(initialData);
   // Convert to plain JS object to avoid serialization issues
   return resume.toObject();
 }
@@ -70,4 +66,36 @@ export async function updateResume(resumeData: Omit<ResumeData, '_id'>) {
   // Using upsert: true will create the document if it doesn't exist.
   const result = await ResumeModel.updateOne({}, { $set: resumeData }, { upsert: true });
   return result;
+}
+
+// Multi-resume operations
+// Multi-resume helpers
+export async function listResumes() {
+  await connectDB();
+  const docs = await ResumeModel.find({}).sort({ _id: -1 }).lean();
+  return docs;
+}
+
+export async function createResume(data?: Partial<ResumeData>) {
+  await connectDB();
+  const doc = await ResumeModel.create(data);
+  return doc.toObject();
+}
+
+export async function getResumeById(id: string) {
+  await connectDB();
+  const doc = await ResumeModel.findById(id).lean();
+  return doc;
+}
+
+export async function updateResumeById(id: string, data: Partial<ResumeData>) {
+  await connectDB();
+  const doc = await ResumeModel.findByIdAndUpdate(id, { $set: data }, { new: true, lean: true });
+  return doc;
+}
+
+export async function deleteResumeById(id: string) {
+  await connectDB();
+  await ResumeModel.findByIdAndDelete(id);
+  return { ok: true } as const;
 }

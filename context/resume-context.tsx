@@ -20,7 +20,7 @@ const ResumeContext = createContext<ResumeContextType | null>(null);
 // that need access to the resume data.
 export function ResumeProvider({
   children,
-  initialServerData,
+  initialServerData = null,
 }: {
   children: React.ReactNode;
   initialServerData?: ResumeData | null;

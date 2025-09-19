@@ -9,17 +9,27 @@ import { ProjectsForm } from './form/projects-form';
 import { useResume } from '@/context/resume-context';
 import { Button } from './ui/button';
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { LoaderCircle } from 'lucide-react';
+import { DownloadButton } from './download-button';
 
-export function ResumeEditor() {
+type ResumeEditorProps = {
+  mode: 'create' | 'edit';
+};
+
+export function ResumeEditor({ mode }: ResumeEditorProps) {
   const { resumeData, isDirty } = useResume();
   const [isSaving, setIsSaving] = useState(false);
+  const router = useRouter();
 
   const handleSave = async () => {
     setIsSaving(true);
     try {
-      const response = await fetch('/api/resume', {
-        method: 'POST',
+      const isEdit = mode === 'edit';
+      const url = isEdit ? `/api/resumes/${resumeData._id}` : '/api/resumes';
+      const method = isEdit ? 'PUT' : 'POST';
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -29,6 +39,15 @@ export function ResumeEditor() {
       if (!response.ok) {
         throw new Error('Failed to save resume');
       }
+      router.push('/resumes');
+
+    //   if (method === 'POST') {
+    //     const created = await response.json().catch(() => null);
+    //     const newId = created?._id || created?.id;
+    //     if (newId) {
+    //       router.push(`/resumes/${newId}`);
+    //     }
+    //   }
 
       // Revalidation and toast notification can be wired here if available
     } catch (error) {
@@ -41,8 +60,9 @@ export function ResumeEditor() {
 
   return (
     <div className="space-y-4">
-      <div className="flex justify-end sticky top-16 bg-background/80 backdrop-blur-sm p-2 z-10 -mx-4 px-4 border-b">
-         <Button onClick={handleSave} disabled={!isDirty || isSaving}>
+      <div className="flex justify-end gap-4 sticky top-16 bg-background/80 backdrop-blur-sm p-2 z-10 -mx-4 px-4 border-b">
+         <DownloadButton />
+         <Button onClick={handleSave} disabled={isSaving || (mode === 'edit' && !isDirty)}>
           {isSaving && <LoaderCircle className="animate-spin mr-2" />}
           {isSaving ? 'Saving...' : 'Save Changes'}
         </Button>
