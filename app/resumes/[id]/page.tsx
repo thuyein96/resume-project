@@ -5,8 +5,9 @@ import { ResumeEditor } from '@/components/resume-editor';
 import { ResumePreview } from '@/components/resume-preview';
 import { getResumeById } from '@/models/resume';
 
-export default async function ResumePage({ params }: { params: { id: string } }) {
-  const data = await getResumeById(params.id);
+export default async function ResumePage({ params } : { params: Promise<{ id: string }> }) {
+  const awaitedParams = await params;
+  const data = await getResumeById(awaitedParams.id);
 
   // Convert to JSON-serializable object
   const plainResumeData = data ? (JSON.parse(JSON.stringify(data)) as ResumeData) : null;
