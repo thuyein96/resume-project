@@ -1,10 +1,8 @@
 {
-  "/api/resumes/[id]/route": "app/api/resumes/[id]/route.js",
   "/api/resumes/route": "app/api/resumes/route.js",
+  "/api/resumes/[id]/route": "app/api/resumes/[id]/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/_not-found/page": "app/_not-found/page.js",
-  "/page": "app/page.js",
-  "/resumes/[id]/page": "app/resumes/[id]/page.js",
   "/resumes/page": "app/resumes/page.js",
+  "/resumes/[id]/page": "app/resumes/[id]/page.js",
   "/resumes/new/page": "app/resumes/new/page.js"
 }
