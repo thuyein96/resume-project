@@ -15,9 +15,12 @@ export async function POST(req: NextRequest) {
   if(!token) return NextResponse.json({ message: 'Unauthorized' }, { status: 401 });
 
   // decrypt and verify token here if needed
-  let decoded: any;
+  let decoded: {
+    id: string;
+    email: string;
+  };
   try {
-    decoded = jwt.verify(token, "default_secret");
+    decoded = jwt.verify(token, "default_secret") as { id: string; email: string };
   } catch (err) {
     return NextResponse.json({ message: 'Invalid token' }, { status: 401 });
   }
