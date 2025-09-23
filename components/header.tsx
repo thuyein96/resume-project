@@ -1,4 +1,5 @@
 import { FileText } from 'lucide-react';
+import Link from 'next/link';
 
 export function Header() {
   return (
@@ -8,7 +9,21 @@ export function Header() {
           <FileText className="h-6 w-6 text-primary" />
           <h1 className="text-xl font-bold text-primary">ResumeCraft</h1>
         </div>
-        
+        <div className='flex items-center gap-4'>
+          <Link href="/resumes" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            My Resumes
+          </Link>
+          <Link href="/users" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            Users
+          </Link>
+          {/* login or signup */}
+          <Link href="/auth" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            Login
+          </Link>
+          <Link href="/api/auth/logout" className="text-sm font-medium text-muted-foreground hover:text-foreground">
+            Logout
+          </Link>
+        </div>
       </div>
     </header>
   );

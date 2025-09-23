@@ -41,6 +41,7 @@ export type Project = {
 
 export type ResumeData = {
   _id?: Types.ObjectId | string;
+  userId: Types.ObjectId | string;
   personalInfo: PersonalInfo;
   education: Education[];
   experience: Experience[];

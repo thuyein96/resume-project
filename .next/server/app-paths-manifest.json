@@ -1,8 +1,11 @@
 {
-  "/api/resumes/route": "app/api/resumes/route.js",
-  "/api/resumes/[id]/route": "app/api/resumes/[id]/route.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
+  "/api/users/profile/route": "app/api/users/profile/route.js",
+  "/api/resumes/route": "app/api/resumes/route.js",
+  "/api/auth/logout/route": "app/api/auth/logout/route.js",
+  "/api/auth/signup/route": "app/api/auth/signup/route.js",
+  "/api/auth/login/route": "app/api/auth/login/route.js",
   "/resumes/page": "app/resumes/page.js",
-  "/resumes/[id]/page": "app/resumes/[id]/page.js",
-  "/resumes/new/page": "app/resumes/new/page.js"
+  "/resumes/new/page": "app/resumes/new/page.js",
+  "/auth/page": "app/auth/page.js"
 }

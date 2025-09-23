@@ -44,6 +44,7 @@ const ProjectSchema = new Schema<Project>({
 }, { _id: false });
 
 const ResumeSchema = new Schema<ResumeData>({
+  userId: { type: Schema.Types.ObjectId, required: true, ref: 'User' },
   personalInfo: PersonalInfoSchema,
   experience: [ExperienceSchema],
   education: [EducationSchema],
@@ -56,7 +57,6 @@ const ResumeModel = mongoose.models.Resume || mongoose.model<ResumeData>('Resume
 export async function getResume() {
   await connectDB();
   let resume = await ResumeModel.create(initialData);
-  // Convert to plain JS object to avoid serialization issues
   return resume.toObject();
 }
 
@@ -66,6 +66,12 @@ export async function updateResume(resumeData: Omit<ResumeData, '_id'>) {
   // Using upsert: true will create the document if it doesn't exist.
   const result = await ResumeModel.updateOne({}, { $set: resumeData }, { upsert: true });
   return result;
+}
+
+export async function getResumeByUserId(userId: string) {
+  await connectDB();
+  const doc = await ResumeModel.findOne({ userId }).lean();
+  return doc;
 }
 
 // Multi-resume operations
@@ -78,6 +84,7 @@ export async function listResumes() {
 
 export async function createResume(data?: Partial<ResumeData>) {
   await connectDB();
+  console.log('Creating resume with data:', data);
   const doc = await ResumeModel.create(data);
   return doc.toObject();
 }
