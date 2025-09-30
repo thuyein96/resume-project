@@ -50,18 +50,22 @@ export function EducationForm() {
           </CardHeader>
           <CardContent className="p-4 pt-0 space-y-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {/* School */}
               <div className="space-y-2">
                 <Label htmlFor={`school-${edu.id}`}>School</Label>
                 <Input id={`school-${edu.id}`} value={edu.school} onChange={(e) => handleEducationChange(index, 'school', e.target.value)} />
               </div>
+              {/* Degree */}
               <div className="space-y-2">
                 <Label htmlFor={`degree-${edu.id}`}>Degree</Label>
                 <Input id={`degree-${edu.id}`} value={edu.degree} onChange={(e) => handleEducationChange(index, 'degree', e.target.value)} />
               </div>
+              {/* Start Date and End Date */}
               <div className="space-y-2">
                 <Label htmlFor={`start-date-${edu.id}`}>Start Date</Label>
                 <Input id={`start-date-${edu.id}`} value={edu.startDate} onChange={(e) => handleEducationChange(index, 'startDate', e.target.value)} />
               </div>
+              {/* End Date */}
               <div className="space-y-2">
                 <Label htmlFor={`end-date-${edu.id}`}>End Date</Label>
                 <Input id={`end-date-${edu.id}`} value={edu.endDate} onChange={(e) => handleEducationChange(index, 'endDate', e.target.value)} />

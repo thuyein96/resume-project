@@ -1,6 +1,6 @@
 import { FileText } from 'lucide-react';
 import Link from 'next/link';
-
+// Header component with logo and navigation links
 export function Header() {
   return (
     <header className="sticky top-0 z-10 w-full bg-background/80 backdrop-blur-sm border-b no-print">
