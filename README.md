@@ -3,6 +3,8 @@
 ## 📝 Project Description 
   Resume Builder is a lightweight web application that helps users create, edit, and manage professional resumes in minutes. It supports the full resume lifecycle—from entering personal details to organizing experience and skills—then exporting a polished document for sharing or printing.
 
+**Project Demo :** https://wad-vm.eastasia.cloudapp.azure.com/resume
+
 ## ✨ What You Can Do
 - <b>Create & manage resumes:</b> Add multiple resumes and switch between them.
 - <b>Edit in real time:</b> Update Personal Information, Work Experience, Education, Skills, and Projects with an intuitive form-based UI.
