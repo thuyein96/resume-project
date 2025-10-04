@@ -1,36 +1,28 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Resume Builder
 
-## Getting Started
+## 📝 Project Description 
+  Resume Builder is a lightweight web application that helps users create, edit, and manage professional resumes in minutes. It supports the full resume lifecycle—from entering personal details to organizing experience and skills—then exporting a polished document for sharing or printing.
 
-First, run the development server:
+## ✨ What You Can Do
+- <b>Create & manage resumes:</b> Add multiple resumes and switch between them.
+- <b>Edit in real time:</b> Update Personal Information, Work Experience, Education, Skills, and Projects with an intuitive form-based UI.
+- <b>Download your resume:</b> Export a clean, formatted resume (e.g., PDF) for applications .
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Home Screen
+<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 41 56" src="https://github.com/user-attachments/assets/609247bb-cfcf-41e4-93d1-a5168f4255ff" />
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Create Resume
+<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 47 03" src="https://github.com/user-attachments/assets/0eb9ba1a-c8da-41d6-9c68-4d5195c87c70" />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## View Created resumes
+<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 47 20" src="https://github.com/user-attachments/assets/92bffe4d-d52e-4078-b735-6367bc35aa67" />
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## 🙆‍♂️ Team Members 
+- Hsu Yee Mon
+- Thu Yein
+- Sai Zin Min Khant
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
