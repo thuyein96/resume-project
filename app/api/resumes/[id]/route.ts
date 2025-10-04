@@ -2,13 +2,14 @@ import { NextRequest, NextResponse } from "next/server"
 import { dbConnect } from "@/lib/mongodb"
 import Resume from "@/lib/models/Resume"
 import { getUserIdFromCookie } from "@/lib/auth"
+type Context = { params: Promise<{ id: string }> };
 
 // GET - Fetch single resume
-export async function GET(request: NextRequest, { params }: { params: { id: string } }) {
+export async function GET(request: NextRequest, { params }: Context) {
   try {
     await dbConnect()
 
-    const resolvedParams = await params
+    const resolvedParams = await Promise.resolve(params)
     const userId = await getUserIdFromCookie()
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -28,11 +29,11 @@ export async function GET(request: NextRequest, { params }: { params: { id: stri
 }
 
 // PUT - Update resume
-export async function PUT(request: NextRequest, { params }: { params: { id: string } }) {
+export async function PUT(request: NextRequest, { params }: Context) {
   try {
     await dbConnect()
 
-    const resolvedParams = await params
+    const resolvedParams = await Promise.resolve(params)
     const userId = await getUserIdFromCookie()
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
@@ -58,12 +59,12 @@ export async function PUT(request: NextRequest, { params }: { params: { id: stri
 // DELETE - Delete resume
 export async function DELETE(
   request: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: Context
 ) {
   try {
     await dbConnect()
 
-    const resolvedParams = await params
+    const resolvedParams = await Promise.resolve(params)
     const userId = await getUserIdFromCookie()
     if (!userId) {
       return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
