@@ -10,14 +10,20 @@
 - <b>Edit in real time:</b> Update Personal Information, Work Experience, Education, Skills, and Projects with an intuitive form-based UI.
 - <b>Download your resume:</b> Export a clean, formatted resume (e.g., PDF) for applications .
 
+## Login Screen
+<img width="1512" height="982" alt="Screenshot 2568-10-05 at 10 22 09" src="https://github.com/user-attachments/assets/d5beccf2-008d-4507-87ca-2e9781f7e98b" />
+
+## Register Screen
+<img width="1512" height="982" alt="Screenshot 2568-10-05 at 10 22 16" src="https://github.com/user-attachments/assets/12196b32-4684-4c92-8ee9-87432fa19b29" />
+
 ## Home Screen
-<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 41 56" src="https://github.com/user-attachments/assets/609247bb-cfcf-41e4-93d1-a5168f4255ff" />
+<img width="1512" height="982" alt="Screenshot 2568-10-05 at 10 18 42" src="https://github.com/user-attachments/assets/9bb03f10-42ed-4192-8b5c-357c2634bdbf" />
 
 ## Create Resume
-<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 47 03" src="https://github.com/user-attachments/assets/0eb9ba1a-c8da-41d6-9c68-4d5195c87c70" />
+<img width="1512" height="982" alt="Screenshot 2568-10-05 at 10 21 53" src="https://github.com/user-attachments/assets/3b1509f9-47a2-4adf-8e0f-dcb56f646ad5" />
 
 ## View Created resumes
-<img width="1512" height="982" alt="Screenshot 2568-10-04 at 11 47 20" src="https://github.com/user-attachments/assets/92bffe4d-d52e-4078-b735-6367bc35aa67" />
+<img width="1512" height="982" alt="Screenshot 2568-10-05 at 10 22 00" src="https://github.com/user-attachments/assets/1a90bf99-a37d-4373-886d-02e851d0606f" />
 
 
 
